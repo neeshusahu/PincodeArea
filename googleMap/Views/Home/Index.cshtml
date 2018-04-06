@@ -1,0 +1,50 @@
+﻿@model googleMap.Models.Details
+    
+
+<head>
+    
+</head>
+
+@{
+   
+    ViewBag.Title = "GetLatLng";
+    ViewBag.Title = "Home";
+}
+
+<h2>Home
+    </h2>
+
+
+    <h4>Details</h4>
+    <hr />
+    <div>
+        @*@using (Html.BeginForm("GetLatLng", "Home",FormMethod.Get))
+        {
+                @Html.TextBoxFor(model => model.zipcode)
+                <button type="submit">find</button>
+
+            
+        }*@
+        @using (Ajax.BeginForm(
+        new AjaxOptions
+        {
+            HttpMethod = "get",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "map"
+        }))
+        {
+            @Html.TextBoxFor(Model => Model.zipcode)
+            <button type="submit">find</button>
+
+        }
+        </ div >
+    
+        @Html.Partial("polygon");
+
+    
+
+   
+   
+</div>
+
+
